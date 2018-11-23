@@ -3,13 +3,13 @@
 
 转换结果
 ---
-![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/date.png)
-![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/tel.png)
-![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/sens.png)
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/date.png/w/216)
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/tel.png/w/216)
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/sens.png/w/216)
 
 使用
 ---
-已时间转换为例，需要实现symbols()以及template():
+以时间转换为例，需要实现symbols()以及template():
 ```kotlin
 class DateConverter : Converter {
     
