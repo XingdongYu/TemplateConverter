@@ -3,9 +3,9 @@
 
 转换结果
 ---
-<img src="https://github.com/XingdongYu/TemplateConverter/blob/master/art/date.png" height="384" width="216">
-<img src="https://github.com/XingdongYu/TemplateConverter/blob/master/art/tel.png" height="384" width="216" align="center">
-<img src="https://github.com/XingdongYu/TemplateConverter/blob/master/art/sens.png" height="384" width="216" align="right">
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/date.png)
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/tel.png)
+![image](https://github.com/XingdongYu/TemplateConverter/blob/master/art/sens.png)
 
 使用
 ---
