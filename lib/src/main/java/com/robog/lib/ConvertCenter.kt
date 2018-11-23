@@ -3,7 +3,7 @@ package com.robog.lib
 /**
  * Created by yuxingdong on 2018/11/23.
  */
-class ConvertCenter(converter: Converter, var mode: Mode = Mode.FIRST) {
+class ConvertCenter(converter: Converter, var mode: Mode = Mode.ADD) {
 
     private val symbols = converter.symbols()
     private val template = converter.template()
@@ -35,7 +35,7 @@ class ConvertCenter(converter: Converter, var mode: Mode = Mode.FIRST) {
             }
 
             if (!hit) {
-                if (mode == Mode.LAST && i < dataBytes.size) {
+                if (mode == Mode.REPLACE && i < dataBytes.size) {
                     dest[i] = dataBytes[i]
                 } else {
                     dest[i] = dataBytes[i - dataIndex]
@@ -47,5 +47,5 @@ class ConvertCenter(converter: Converter, var mode: Mode = Mode.FIRST) {
 }
 
 enum class Mode {
-    FIRST, LAST
+    ADD, REPLACE
 }

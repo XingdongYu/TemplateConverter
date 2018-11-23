@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         btSensitive.setOnClickListener {
             val data = "12345678"
-            val convertData = ConvertCenter(SensitiveConverter(), Mode.LAST).apply(data)
+            val convertData = ConvertCenter(SensitiveConverter(), Mode.REPLACE).apply(data)
             showDialog(btSensitive.text, data, sensTemplate, convertData)
         }
     }
@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog(title: CharSequence, src: String, template: String, result: String) {
+        println("原始数据: $src\n\n数据模版: $template\n\n转换数据: $result")
         AlertDialog.Builder(this)
                 .setTitle(title)
                 .setMessage("原始数据: $src\n\n数据模版: $template\n\n转换数据: $result")
