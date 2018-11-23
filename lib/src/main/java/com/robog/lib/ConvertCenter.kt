@@ -3,11 +3,10 @@ package com.robog.lib
 /**
  * Created by yuxingdong on 2018/11/23.
  */
-class ConvertCenter(converter: Converter) {
+class ConvertCenter(converter: Converter, var mode: Mode = Mode.FIRST) {
 
     private val symbols = converter.symbols()
     private val template = converter.template()
-
     private val charset = Charsets.UTF_8
 
     fun apply(src: String): String {
@@ -36,9 +35,17 @@ class ConvertCenter(converter: Converter) {
             }
 
             if (!hit) {
-                dest[i] = dataBytes[i - dataIndex]
+                if (mode == Mode.LAST && i < dataBytes.size) {
+                    dest[i] = dataBytes[i]
+                } else {
+                    dest[i] = dataBytes[i - dataIndex]
+                }
             }
         }
         return dest.toString(charset)
     }
+}
+
+enum class Mode {
+    FIRST, LAST
 }

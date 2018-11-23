@@ -31,4 +31,10 @@
         android:layout_height="wrap_content"
         android:text="电话"/>
 
+    <Button
+        android:id="@+id/btSensitive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="敏感信息"/>
+
 </LinearLayout>
