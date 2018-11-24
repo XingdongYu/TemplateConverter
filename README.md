@@ -1,5 +1,6 @@
 ## TemplateConverter
 [![](https://jitpack.io/v/XingdongYu/TemplateConverter.svg)](https://jitpack.io/#XingdongYu/TemplateConverter)
+
 简单地自定义特征符号以及模版格式进行数据格式转换
 
 输出结果
@@ -13,6 +14,22 @@
 
 使用
 ---
+```groovy
+
+// project
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+// app
+dependencies {
+        implementation 'com.github.XingdongYu:TemplateConverter:v1.0.2'
+}
+
+```
 以时间转换为例，需要实现symbols()以及template():
 ```kotlin
 class DateConverter : Converter {

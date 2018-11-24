@@ -3,13 +3,15 @@ package com.robog.lib
 /**
  * Created by yuxingdong on 2018/11/23.
  */
-class ConvertCenter(converter: Converter, var mode: Mode = Mode.ADD) {
+class ConvertCenter @JvmOverloads constructor(converter: Converter, var mode: Mode = Mode.ADD) {
 
     private val symbols = converter.symbols()
     private val template = converter.template()
     private val charset = Charsets.UTF_8
 
-    fun apply(src: String): String {
+    fun apply(src: String?): String {
+
+        if (src == null) return ""
 
         val dest = ByteArray(template.length)
         val dataBytes = src.toByteArray(charset)
