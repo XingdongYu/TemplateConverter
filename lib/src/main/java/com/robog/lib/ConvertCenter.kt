@@ -3,10 +3,10 @@ package com.robog.lib
 /**
  * Created by yuxingdong on 2018/11/23.
  */
-class ConvertCenter @JvmOverloads constructor(converter: Converter, var mode: Mode = Mode.ADD) {
+class ConvertCenter @JvmOverloads constructor(var converter: Converter, var mode: Mode = Mode.ADD) {
 
-    private val symbols = converter.symbols()
-    private val template = converter.template()
+    var symbols = converter.symbols()
+    var template = converter.template()
     private val charset = Charsets.UTF_8
 
     fun apply(src: String?): String {

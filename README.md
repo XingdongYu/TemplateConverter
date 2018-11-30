@@ -26,7 +26,7 @@ allprojects {
 
 // app
 dependencies {
-        implementation 'com.github.XingdongYu:TemplateConverter:v1.0.2'
+        implementation 'com.github.XingdongYu:TemplateConverter:v1.0.3'
 }
 
 ```
