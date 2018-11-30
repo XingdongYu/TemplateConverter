@@ -20,6 +20,12 @@
         android:text="日期小于模版"/>
 
     <Button
+        android:id="@+id/btDateShortAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日期小于模版(ALL)"/>
+
+    <Button
         android:id="@+id/btDateLonger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

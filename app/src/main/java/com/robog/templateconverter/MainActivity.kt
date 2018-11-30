@@ -21,32 +21,57 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btDate.setOnClickListener {
             val dateTime = getDateTime("yyyyMMddHHmmss")
-            val convertDate = ConvertCenter(DateConverter()).apply(dateTime)
-            showDialog(btDate.text, dateTime, dateTemplate, convertDate)
+            var convertDate = ""
+            val time = getTime {
+                convertDate = ConvertCenter(DateConverter()).apply(dateTime)
+            }
+            showDialog(btDate.text, dateTime, dateTemplate, convertDate, time)
         }
 
         btDateShort.setOnClickListener {
             val dateTime = getDateTime("yyyyMMdd")
-            val convertDate = ConvertCenter(DateConverter()).apply(dateTime)
-            showDialog(btDateShort.text, dateTime, dateTemplate, convertDate)
+            var convertDate = ""
+            val time = getTime {
+                convertDate = ConvertCenter(DateConverter()).apply(dateTime)
+            }
+            showDialog(btDateShort.text, dateTime, dateTemplate, convertDate, time)
+        }
+
+        btDateShortAll.setOnClickListener {
+            val dateTime = getDateTime("yyyyMMdd")
+            var convertDate = ""
+            val time = getTime {
+                convertDate = ConvertCenter(DateConverter(), Mode.TEMPLATE).apply(dateTime)
+            }
+            showDialog(btDateShortAll.text, dateTime, dateTemplate, convertDate, time)
         }
 
         btDateLonger.setOnClickListener {
             val dateTime = getDateTime("yyyyMMddHHmmssSSSS")
-            val convertDate = ConvertCenter(DateConverter()).apply(dateTime)
-            showDialog(btDateLonger.text, dateTime, dateTemplate, convertDate)
+            var convertDate = ""
+            val time = getTime {
+                convertDate = ConvertCenter(DateConverter()).apply(dateTime)
+            }
+            showDialog(btDateLonger.text, dateTime, dateTemplate, convertDate, time)
         }
 
         btTel.setOnClickListener {
             val tel = "13812345678"
-            val convertTel = ConvertCenter(TelConverter()).apply(tel)
-            showDialog(btTel.text, tel, telTemplate, convertTel)
+            var convertTel = ""
+            val time = getTime {
+                convertTel = ConvertCenter(TelConverter()).apply(tel)
+            }
+            showDialog(btTel.text, tel, telTemplate, convertTel, time)
         }
 
         btSensitive.setOnClickListener {
             val data = "12345678"
-            val convertData = ConvertCenter(SensitiveConverter(), Mode.REPLACE).apply(data)
-            showDialog(btSensitive.text, data, sensTemplate, convertData)
+            var convertData = ""
+            val time = getTime {
+                convertData = ConvertCenter(SensitiveConverter(), Mode.REPLACE).apply(data)
+            }
+
+            showDialog(btSensitive.text, data, sensTemplate, convertData, time)
         }
     }
 
@@ -56,12 +81,18 @@ class MainActivity : AppCompatActivity() {
         return SimpleDateFormat(pattern, Locale.CHINA).format(date)
     }
 
-    private fun showDialog(title: CharSequence, src: String, template: String, result: String) {
+    private fun showDialog(title: CharSequence, src: String, template: String, result: String, time: Long) {
         println("原始数据: $src\n\n数据模版: $template\n\n转换数据: $result")
         AlertDialog.Builder(this)
                 .setTitle(title)
-                .setMessage("原始数据: $src\n\n数据模版: $template\n\n转换数据: $result")
+                .setMessage("原始数据: $src\n\n数据模版: $template\n\n转换数据: $result\n\n耗时: $time ms")
                 .show()
+    }
+
+    private fun getTime(f: () -> Unit): Long {
+        val startTime = System.currentTimeMillis()
+        f()
+        return System.currentTimeMillis() - startTime
     }
 }
 
